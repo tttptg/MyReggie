@@ -104,11 +104,6 @@ public class OrdersController {
 
             List<OrderDetail> orderDetailList = orderDetailService.list(orderDetailLambdaQueryWrapper);
             ordersDto.setOrderDetails(orderDetailList);
-            int size = 0;
-            for(OrderDetail o :orderDetailList){
-                size += o.getNumber();
-            }
-            ordersDto.setSumNum(size);
             return ordersDto;
         }).collect(Collectors.toList());
 
